@@ -4,7 +4,7 @@
 import re
 
 class datamine:
-    def__init__(self):
+    def __init__(self):
         self.regex_rubric = {
             "Email addressess" :  r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b',
             "URLs" : r'(?i)\b((?:https?://|www\.)[^\s]+)',
@@ -30,4 +30,12 @@ class datamine:
                     print(f"  - {match}")
             else:
                 print("  No matches found.")
+    def run(self):      
+        text = input("Enter the text to mine: ")
+        results = self.mine_data(text)
+        self.display_results(results)
+if __name__ == "__main__":
+    datamine_instance = datamine()
+    datamine_instance.run()
+# Python script that defines a class for data mining using regular expressions.
         
