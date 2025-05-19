@@ -2,7 +2,13 @@
 #Import re
 
 import re
-
+sample_text = """
+ anjaojane@gmail.com
+ https://www.goole.com
+ 123-456-7890
+ <div>hello</div>
+ $100.00
+ """
 class datamine:
     def __init__(self):
         self.regex_rubric = {
@@ -30,12 +36,10 @@ class datamine:
                     print(f"  - {match}")
             else:
                 print("  No matches found.")
-    def run(self):      
-        text = input("Enter the text to mine: ")
-        results = self.mine_data(text)
+    def run(self):  
+        results = self.mine_data(sample_text)
         self.display_results(results)
 if __name__ == "__main__":
     datamine_instance = datamine()
     datamine_instance.run()
 # Python script that defines a class for data mining using regular expressions.
-        
