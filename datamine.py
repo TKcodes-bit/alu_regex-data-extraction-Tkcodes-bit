@@ -8,18 +8,25 @@ sample_text = """
  123-456-7890
  <div>hello</div>
  $100.00
+ edge cases
+ $1,000.50
+ test@@mail..com
+ www.example.org
+ +1 234-567-8900
+ #trending #Python3 #100DaysOfCode
+ 12:45
  """
 class datamine:
     def __init__(self):
         self.regex_rubric = {
             "Email addressess" :  r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b',
             "URLs" : r'(?i)\b((?:https?://|www\.)[^\s]+)',
-            "Phone numbers" : r'\b\d{3}[-.\s]??\d{3}[-.\s]??\d{4}\b',
+            "Phone numbers" :r'(\+?\d{1,2}[-.\s]?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}',
             "Credit card numbers" : r'\b(?:\d{4}[-.\s]?){3}\d{4}\b',
             "Time" : r'\b(?:[01]\d|2[0-3]):[0-5]\d\b',
             "HTML tags" : r'<[^>]+>',
             "Hash tags" : r'#\w+',
-            "Currency amounts" : r'\$\d+(?:\.\d{2})?',
+            "Currency amounts" :r'\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?',
         }
     def mine_data(self, text: str):
         results = {}
