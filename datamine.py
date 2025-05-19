@@ -15,3 +15,9 @@ class datamine:
             "Hash tags" : r'#\w+',
             "Currency amounts" : r'\$\d+(?:\.\d{2})?',
         }
+    def mine_data(self, text: str):
+        results = {}
+        for label, pattern in self.regex_rubric.items():
+            matches = re.findall(pattern, text)
+            results[label] = matches
+        return results
