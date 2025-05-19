@@ -29,4 +29,4 @@ Includes handling for **edge cases** such as:
 ### Run the Script
 
 ```bash
-python3 datamine.p
+python3 datamine.py
