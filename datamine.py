@@ -21,3 +21,13 @@ class datamine:
             matches = re.findall(pattern, text)
             results[label] = matches
         return results
+    def display_results(self, results): 
+        print("Data Mining Results:")
+        for label, matches in results.items():
+            print(f"{label}:")
+            if matches:
+                for match in matches:
+                    print(f"  - {match}")
+            else:
+                print("  No matches found.")
+        
